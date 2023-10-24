@@ -39,15 +39,15 @@ export const config: Config = {
       event: parseAbiItem("event OutputsDeleted(uint256 indexed prevNextOutputIndex, uint256 indexed newNextOutputIndex)")
     }
   },
-  // {
-  //   name: "Proxy",
-  //   startBlock: 17365801,
-  //   network: "mainnet",
-  //   abi: "/Users/dennisonbertram/Develop/superchain-explorer-ponder/abis/Proxy.json",
-  //   filter: {
-  //     event: parseAbiItem("event AdminChanged(address previousAdmin, address newAdmin)")
-  //   }
-  // },
+  {
+    name: "Proxy",
+    startBlock: 17365801,
+    network: "mainnet",
+    abi: "/Users/dennisonbertram/Develop/superchain-explorer-ponder/abis/Proxy.json",
+    filter: {
+      event: parseAbiItem("event AdminChanged(address previousAdmin, address newAdmin)")
+    }
+  },
   {
     name: "Proxy",
     startBlock: 17365801,
