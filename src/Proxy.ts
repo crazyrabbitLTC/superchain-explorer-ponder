@@ -1,9 +1,13 @@
 import { ponder } from "@/generated";
 
-ponder.on("Proxy:Initialized", async ({ event, context }) => {
-  console.log(event.params);
-});
+import { registerAdminChangedEvent } from "./handlers/registerAdminChanged";
+import { registerInitializedEvent } from "./handlers/registerInitialized";
+import { registerOutputProposedEvent } from "./handlers/registerOutputProposed";
+import { registerOutputsDeletedEvent } from "./handlers/registerOutputDeleted";
+import { registerUpgradedEvent} from "./handlers/registerUpgraded";
 
-ponder.on("Proxy:OutputProposed", async ({ event, context }) => {
-  console.log(event.params);
-});
+registerAdminChangedEvent();
+registerInitializedEvent();
+registerOutputProposedEvent();
+registerOutputsDeletedEvent();
+registerUpgradedEvent();

@@ -1,0 +1,19 @@
+[
+  {
+    "fileName": "L2OutputOracle_0xd2e6.json",
+    "filePath": "/Users/dennisonbertram/Develop/superchain-explorer-ponder/abis/L2OutputOracle_0xd2e6.json",
+    "eventSignatures": [
+      "event Initialized(uint8 version)",
+      "event OutputProposed(bytes32 indexed outputRoot, uint256 indexed l2OutputIndex, uint256 indexed l2BlockNumber, uint256 l1Timestamp)",
+      "event OutputsDeleted(uint256 indexed prevNextOutputIndex, uint256 indexed newNextOutputIndex)"
+    ]
+  },
+  {
+    "fileName": "Proxy.json",
+    "filePath": "/Users/dennisonbertram/Develop/superchain-explorer-ponder/abis/Proxy.json",
+    "eventSignatures": [
+      "event AdminChanged(address previousAdmin, address newAdmin)",
+      "event Upgraded(address indexed implementation)"
+    ]
+  }
+]

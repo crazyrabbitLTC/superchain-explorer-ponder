@@ -1,4 +1,115 @@
-type ExampleEntity @entity {
+# EventEntities.graphql
+
+type Initialized @entity {
   id: String!
-  name: String!
+  contract: Address!
+  version: Int!
+  block: Block_entry!
+  transaction: Transaction_entry!
+  log: Log_entry!
+}
+
+type OutputProposed @entity {
+  id: String!
+  contract: Address!
+  outputRoot: String!
+  l2OutputIndex: BigInt!
+  l2BlockNumber: BigInt!
+  l1Timestamp: BigInt!
+  block: Block_entry!
+  transaction: Transaction_entry!
+  log: Log_entry!
+}
+
+type OutputsDeleted @entity {
+  id: String!
+  contract: Address!
+  prevNextOutputIndex: BigInt!
+  newNextOutputIndex: BigInt!
+  block: Block_entry!
+  transaction: Transaction_entry!
+  log: Log_entry!
+}
+
+type AdminChanged @entity {
+  id: String!
+  contract: Address!
+  previousAdmin: Address!
+  newAdmin: Address!
+  block: Block_entry!
+  transaction: Transaction_entry!
+  log: Log_entry!
+}
+
+type Upgraded @entity {
+  id: String!
+  contract: Address!
+  implementation: Address!
+  block: Block_entry!
+  transaction: Transaction_entry!
+  log: Log_entry!
+}
+
+type Address @entity {
+  id: String!
+  isContract: Boolean
+  isL2Contract: Boolean
+  transactions: [Transaction_entry!]! @derivedFrom(field: "from")
+}
+
+type Block_entry @entity {
+  id: String! # Globally unique identifier
+  baseFeePerGas: BigInt
+  extraData: Bytes!
+  gasLimit: BigInt!
+  gasUsed: BigInt!
+  hash: String!
+  logsBloom: Bytes!
+  miner: String!
+  number: BigInt!
+  parentHash: String!
+  receiptsRoot: Bytes!
+  size: BigInt!
+  stateRoot: String!
+  timestamp: BigInt!
+  totalDifficulty: BigInt!
+  transactionsRoot: String!
+  transactions: [Transaction_entry!]! @derivedFrom(field: "block")
+  # events: [Event_entry!]! @derivedFrom(field: "block")
+}
+
+type Transaction_entry @entity {
+  id: String! # Globally unique identifier (hash + chainId)
+  block: Block_entry! # Block this transaction is part of
+  blockHash: String!
+  blockNumber: BigInt!
+  chainId: Int
+  from: Address!
+  gas: BigInt!
+  gasPrice: BigInt
+  hash: String!
+  input: String!
+  maxFeePerGas: BigInt
+  maxPriorityFeePerGas: BigInt
+  nonce: Int!
+  to: Address!
+  transactionIndex: Int!
+  value: BigInt!
+  logs: [Log_entry!]! @derivedFrom(field: "transaction")
+  # events: [Event_entry!]! @derivedFrom(field: "transaction")
+}
+
+type Log_entry @entity {
+  id: String! # Globally unique identifier (`${blockHash}-${logIndex}`)
+  transaction: Transaction_entry! # Transaction this log is part of
+  address: Address!
+  blockHash: String!
+  blockNumber: BigInt!
+  data: String!
+  logIndex: Int!
+  removed: Boolean!
+  topics: [String!]!
+  transactionHash: String!
+  transactionIndex: Int!
+  # events: [Event_entry!]! @derivedFrom(field: "log")
 }

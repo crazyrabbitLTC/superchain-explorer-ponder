@@ -1,0 +1,40 @@
+{
+  name: "L2OutputOracle_0xd2e6",
+  network: "mainnet",
+  abi: "/Users/dennisonbertram/Develop/superchain-explorer-ponder/abis/L2OutputOracle_0xd2e6.json",
+  filter: {
+    event: parseAbiItem("event Initialized(uint8 version)")
+  }
+},
+{
+  name: "L2OutputOracle_0xd2e6",
+  network: "mainnet",
+  abi: "/Users/dennisonbertram/Develop/superchain-explorer-ponder/abis/L2OutputOracle_0xd2e6.json",
+  filter: {
+    event: parseAbiItem("event OutputProposed(bytes32 indexed outputRoot, uint256 indexed l2OutputIndex, uint256 indexed l2BlockNumber, uint256 l1Timestamp)")
+  }
+},
+{
+  name: "L2OutputOracle_0xd2e6",
+  network: "mainnet",
+  abi: "/Users/dennisonbertram/Develop/superchain-explorer-ponder/abis/L2OutputOracle_0xd2e6.json",
+  filter: {
+    event: parseAbiItem("event OutputsDeleted(uint256 indexed prevNextOutputIndex, uint256 indexed newNextOutputIndex)")
+  }
+},
+{
+  name: "Proxy",
+  network: "mainnet",
+  abi: "/Users/dennisonbertram/Develop/superchain-explorer-ponder/abis/Proxy.json",
+  filter: {
+    event: parseAbiItem("event AdminChanged(address previousAdmin, address newAdmin)")
+  }
+},
+{
+  name: "Proxy",
+  network: "mainnet",
+  abi: "/Users/dennisonbertram/Develop/superchain-explorer-ponder/abis/Proxy.json",
+  filter: {
+    event: parseAbiItem("event Upgraded(address indexed implementation)")
+  }
+},
